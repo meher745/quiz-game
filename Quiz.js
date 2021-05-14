@@ -30,40 +30,45 @@ class Quiz {
 
   play(){
     //write code here to hide question elements
-    this.title.hide();
-    this.input1.hide();
-    this.input2.hide();
-    this.button.hide();
+    question.hide;
     
     //write code to change the background color here
-    backgroundColor="pink";
+    background("salmon");
 
     //write code to show a heading for showing the result of Quiz
-    //this.result=createElement('h2');
-    //this.result.html("Results of the Quiz");
-    //this.result.position(350,0);
+    fill(0);
+    textSize(20);
+    text("Results of the quiz",340,50);
+    
 
     //call getContestantInfo( ) here
-    getContestantInfo();
+    Contestant.getPlayerInfo();
 
 
     //write condition to check if contestantInfor is not undefined
     if(allContestants!==undefined){
-      fill("yellow");
-      textSize(15);
-      text("NOTE:The contestant with the right answer is highlighted in black",130,230)
-    }
+      debugger;
+      fill("black");
+      textSize(20);
+      text("NOTE:The contestant with the right answer is highlighted in white",130,230)
+      var displayans=230;
     
     for(var plr in allContestants){
+      debugger;
       var correctans="2";
       if(correctans===allContestants[plr].answer)
-      fill("black");
-      else
       fill("white");
+      else
+      fill("black");
+
+      displayans+=30;
+      textSize(20);
+      text(allContestants[plr].name+":"+allContestants[plr].answer,250,displayans);
 
     }
 
-    
+
+  }
   }
 
 }
